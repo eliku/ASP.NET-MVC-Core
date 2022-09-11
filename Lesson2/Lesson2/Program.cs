@@ -24,6 +24,7 @@ namespace Lesson2
             clOperations clOp = new clOperations();
             clOp._ch1 = 0;
             clOp._ch2 = 3;
+            ThreadPool.SetMaxThreads(1, 0);
 
             for (int i = 0; i < autoResetEvents.Length; i++)
             {
