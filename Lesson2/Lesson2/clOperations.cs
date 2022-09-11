@@ -8,8 +8,8 @@ namespace Lesson2
 {
     public class clOperations
     {
-        public int _ch1;
-        public int _ch2;
+        public int _ch1 { get; set; }
+        public int _ch2 { get; set; }
 
         public int Sum()
         {
