@@ -20,16 +20,19 @@ namespace Lesson2
     {
         static void Main(string[] args)
         {
-            AutoResetEvent[] autoResetEvents = new AutoResetEvent[5];
+            AutoResetEvent[] autoResetEvents = new AutoResetEvent[25];
             clOperations clOp = new clOperations();
             clOp._ch1 = 0;
             clOp._ch2 = 3;
-            ThreadPool.SetMaxThreads(1, 0);
+            int  j;
+
+            ThreadPool.SetMaxThreads(10, 10);
 
             for (int i = 0; i < autoResetEvents.Length; i++)
             {
                 autoResetEvents[i] = new AutoResetEvent(false);
                 ThreadPool.QueueUserWorkItem(new WaitCallback(OperatNumbers), new ThreadControl(clOp, autoResetEvents[i]));
+                j = i;
             }
             WaitHandle.WaitAll(autoResetEvents);
 
